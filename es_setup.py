@@ -9,7 +9,7 @@ doc = {
 }
 
 INDEX = 'test-people'
-DOC_TYPE = 'person'
+DOC_TYPE = 'test-person'
 INDEX_ID = 1
 
 es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
