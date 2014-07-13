@@ -12,6 +12,7 @@
 		<thead>
 		    <tr>
 		    	<th>Confirm?</th>
+		    	<th>ID</th>
 				<th>Citizenship</th>
 				<th>Website</th>
 				<th>Register</th>
@@ -33,6 +34,7 @@
 				{% for person in persons %}
 					<tr>
 				    	<td><input type='checkbox'/> confirm?</td>
+						<td>{{ person._id }}</td>
 						<td>{{ person._source.Citizenship }}</td>
 						<td>{{ person._source.Website }}</td>
 						<td>{{ person._source.Register }}</td>
@@ -49,9 +51,6 @@
 						<td>{{ person._source.uuid }}</td>
 						<td>{{ person._source.Currency }}</td>
 						<td>{{ person._source.Residence }}</td>
-				    	<td style='display:none'>
-				    		<input type='hidden' value='{{ person._id }}'>
-			    		</td>
 		    		</tr>
 				{% endfor %}
 		    </tbody>
