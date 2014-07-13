@@ -19,4 +19,4 @@ class PEPForm(Form):
 	MonthlyIncome = TextField('MonthlyIncome')
 	Currency = TextField('Currency')
 	Residence  = TextField('Residence')
-# 	  uuid = TextField('uuid', [validators.Length(min=4, max=25)]) # backend generated
+	uuid = TextField('uuid', [validators.Length(min=4, max=25)]) # backend generated

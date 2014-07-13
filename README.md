@@ -9,7 +9,3 @@ see http://openpep.tesobe.com/
 - using elasticsearch 0.90.7
 - eventually install elasticsearch on ubuntu along these lines https://gist.github.com/wingdspur/2026107
 
-IMPROVEMENTS:
--------------
-
-- use https://pythonhosted.org/Flask-Uploads/ for the uploads
