@@ -1,0 +1,60 @@
+<!doctype html>
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<table class='table-bordered'>
+		<thead>
+		    <tr>
+		    	<th>Confirm?</th>
+				<th>Citizenship</th>
+				<th>Website</th>
+				<th>Register</th>
+				<th>Subcategory</th>
+				<th>LastName</th>
+				<th>Title</th>
+				<th>Source</th>
+				<th>Category</th>
+				<th>MiddleName</th>
+				<th>Ministery</th>
+				<th>FirstName</th>
+				<th>Position</th>
+				<th>MonthlyIncome</th>
+				<th>uuid</th>
+				<th>Currency</th>
+				<th>Residence</th>
+		    </tr>
+		    <tbody>
+				{% for person in persons %}
+					<tr>
+				    	<td><input type='checkbox'/> confirm?</td>
+						<td>{{ person._source.Citizenship }}</td>
+						<td>{{ person._source.Website }}</td>
+						<td>{{ person._source.Register }}</td>
+						<td>{{ person._source.Subcategory }}</td>
+						<td>{{ person._source.LastName }}</td>
+						<td>{{ person._source.Title }}</td>
+						<td>{{ person._source.Source }}</td>
+						<td>{{ person._source.Category }}</td>
+						<td>{{ person._source.MiddleName }}</td>
+						<td>{{ person._source.Ministery }}</td>
+						<td>{{ person._source.FirstName }}</td>
+						<td>{{ person._source.Position }}</td>
+						<td>{{ person._source.MonthlyIncome }}</td>
+						<td>{{ person._source.uuid }}</td>
+						<td>{{ person._source.Currency }}</td>
+						<td>{{ person._source.Residence }}</td>
+				    	<td style='display:none'>
+				    		<input type='hidden' value='{{ person._id }}'>
+			    		</td>
+		    		</tr>
+				{% endfor %}
+		    </tbody>
+		</thead>
+	</table>
+</body>
