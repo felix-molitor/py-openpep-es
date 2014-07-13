@@ -40,6 +40,7 @@ def bulk_create(objs):
 	helpers.bulk(es, actions)
 
 
+
 def confirm_record(index, doc_type, id):
 
 
@@ -53,6 +54,20 @@ def confirm_record(index, doc_type, id):
         return True
     except:
         return False
+
+
+@app.route('/confirm', methods=['GET', 'POST'])
+def confirm():
+	if request.method == 'POST':
+		pass
+	else:
+		search_hits = es.search(INDEX)['hits']
+		if search_hits['total']:
+			persons = search_hits['hits']
+		else:
+			persons = []
+		print persons
+		return render_template('confirm.html', persons=persons)
 
 
 
