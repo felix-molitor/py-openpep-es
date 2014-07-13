@@ -40,6 +40,22 @@ def bulk_create(objs):
 	helpers.bulk(es, actions)
 
 
+def confirm_record(index, doc_type, id):
+
+
+    try:
+
+        record_to_move = es.get(index=index, doc_type=doc_type, id=id)['_source']
+
+        print "record to move is %s" % record_to_move
+        es.create('people','person',record_to_move)
+        es.delete(index, doc_type,id)
+        return True
+    except:
+        return False
+
+
+
 @app.route('/', methods=['GET', 'POST'])
 def upload():
 	if request.method == 'POST':
@@ -74,6 +90,25 @@ def upload():
 	else:
 		# just a mock handler to display the file upload form
 	    return render_template('upload.html')
+
+
+@app.route('/move', methods=['GET', 'POST'])
+def move():
+    if request.method == 'POST':
+
+        id = request.form['id']
+
+        if confirm_record('test-people', 'test-person', id):
+            return render_template('move_success.html')
+        else:
+            return render_template('move_error.html')
+
+    else:
+		# just a mock handler to display the file upload form
+	    return render_template('move.html')
+
+
+
 
 
 if __name__ == "__main__":
