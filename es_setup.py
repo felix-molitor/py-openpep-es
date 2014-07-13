@@ -8,7 +8,7 @@ doc = {
     'timestamp': datetime.now()
 }
 
-INDEX = 'unconfirmed-x-people'
+INDEX = 'test-people'
 DOC_TYPE = 'person'
 INDEX_ID = 1
 
